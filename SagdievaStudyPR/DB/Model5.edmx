@@ -1,0 +1,1097 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище SagdievaStudyPRModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Academics">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Fullname" Type="nvarchar(max)" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Specialization" Type="nvarchar(max)" />
+          <Property Name="YearOfAwardingTheTitle" Type="int" />
+        </EntityType>
+        <EntityType Name="Animals_Sagdieva">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Squad" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID_Speciality" Type="nvarchar" MaxLength="8" />
+          <Property Name="ID_Discipline" Type="int" />
+        </EntityType>
+        <EntityType Name="Chair">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="ID_Faculty" Type="nvarchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="ChairBoss">
+          <Key>
+            <PropertyRef Name="ID_Worker" />
+          </Key>
+          <Property Name="ID_Worker" Type="int" Nullable="false" />
+          <Property Name="Standing" Type="int" />
+        </EntityType>
+        <EntityType Name="Control_Sagdieva">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Capital" Type="nvarchar(max)" />
+          <Property Name="Square" Type="int" />
+          <Property Name="Population" Type="int" />
+          <Property Name="Continent" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Country_Sagdieva">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Square" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Discipline">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Volume" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="ID_Chair" Type="nvarchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="Engineer">
+          <Key>
+            <PropertyRef Name="ID_Worker" />
+          </Key>
+          <Property Name="ID_Worker" Type="int" Nullable="false" />
+          <Property Name="ID_Speciality" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="ID_Discipline" Type="int" />
+          <Property Name="ID_Student" Type="int" />
+          <Property Name="ID_Worker" Type="int" />
+          <Property Name="Audience" Type="nvarchar" MaxLength="4" />
+          <Property Name="Mark" Type="int" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Flowers_Sagdieva">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Class" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "SagdievaStudyPR.dbo.GymnasiumPupil" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="GymnasiumPupil">
+          <Key>
+            <PropertyRef Name="Surname" />
+            <PropertyRef Name="Subject" />
+            <PropertyRef Name="School" />
+          </Key>
+          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="School" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Points" Type="float" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "SagdievaStudyPR.dbo.Primer6" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Primer6">
+          <Property Name="Номер недели" Type="int" />
+          <Property Name="Количество экзаменов" Type="int" />
+          <Property Name="Количество студентов" Type="int" />
+        </EntityType>-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "SagdievaStudyPR.dbo.Primer7" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Primer7">
+          <Property Name="Continent" Type="varchar" MaxLength="50" />
+          <Property Name="Square" Type="float" />
+          <Property Name="Square1" Type="float" />
+        </EntityType>-->
+        <EntityType Name="Speciality">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="ID_Chair" Type="nvarchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID_Speciality" Type="nvarchar" MaxLength="8" />
+          <Property Name="Surname" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="StudentPR10">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="School" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Points" Type="float" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="ID_Worker" />
+          </Key>
+          <Property Name="ID_Worker" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Degree" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Chair" Type="nvarchar" MaxLength="2" />
+          <Property Name="Fullname" Type="nvarchar(max)" />
+          <Property Name="Position" Type="nvarchar(max)" />
+          <Property Name="Salary" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ID_Chief" Type="int" />
+          <Property Name="Login" Type="nvarchar" MaxLength="30" />
+          <Property Name="Password" Type="nvarchar" MaxLength="30" />
+          <Property Name="Image" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Application_To_Discipline">
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discipline">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_Discipline" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_To_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_Speciality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chair_To_Faculty">
+          <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
+          <End Role="Chair" Type="Self.Chair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Chair">
+              <PropertyRef Name="ID_Faculty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChairBoss_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="ChairBoss" Type="Self.ChairBoss" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChairBoss">
+              <PropertyRef Name="ID_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Discipline_To_Chair">
+          <End Role="Chair" Type="Self.Chair" Multiplicity="0..1" />
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chair">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Discipline">
+              <PropertyRef Name="ID_Chair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engineer_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="Engineer" Type="Self.Engineer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Engineer">
+              <PropertyRef Name="ID_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_To_Discipline">
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discipline">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="ID_Discipline" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_To_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="ID_Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_To_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="ID_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speciality_To_Chair">
+          <End Role="Chair" Type="Self.Chair" Multiplicity="0..1" />
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chair">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Speciality">
+              <PropertyRef Name="ID_Chair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_To_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="ID_Speciality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="ID_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Worker_To_Chair">
+          <End Role="Chair" Type="Self.Chair" Multiplicity="0..1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chair">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="ID_Chair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище SagdievaStudyPRModelContainer">
+          <EntitySet Name="Academics" EntityType="Self.Academics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Animals_Sagdieva" EntityType="Self.Animals_Sagdieva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chair" EntityType="Self.Chair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChairBoss" EntityType="Self.ChairBoss" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Control_Sagdieva" EntityType="Self.Control_Sagdieva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country_Sagdieva" EntityType="Self.Country_Sagdieva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Discipline" EntityType="Self.Discipline" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Engineer" EntityType="Self.Engineer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faculty" EntityType="Self.Faculty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Flowers_Sagdieva" EntityType="Self.Flowers_Sagdieva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Speciality" EntityType="Self.Speciality" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentPR10" EntityType="Self.StudentPR10" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GymnasiumPupil" EntityType="Self.GymnasiumPupil" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GymnasiumPupil].[Surname] AS [Surname], 
+    [GymnasiumPupil].[Subject] AS [Subject], 
+    [GymnasiumPupil].[School] AS [School], 
+    [GymnasiumPupil].[Points] AS [Points]
+    FROM [dbo].[GymnasiumPupil] AS [GymnasiumPupil]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Application_To_Discipline" Association="Self.FK_Application_To_Discipline">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_To_Speciality" Association="Self.FK_Application_To_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chair_To_Faculty" Association="Self.FK_Chair_To_Faculty">
+            <End Role="Faculty" EntitySet="Faculty" />
+            <End Role="Chair" EntitySet="Chair" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChairBoss_Worker" Association="Self.FK_ChairBoss_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="ChairBoss" EntitySet="ChairBoss" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Discipline_To_Chair" Association="Self.FK_Discipline_To_Chair">
+            <End Role="Chair" EntitySet="Chair" />
+            <End Role="Discipline" EntitySet="Discipline" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engineer_Worker" Association="Self.FK_Engineer_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Engineer" EntitySet="Engineer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_To_Discipline" Association="Self.FK_Exam_To_Discipline">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_To_Student" Association="Self.FK_Exam_To_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_To_Worker" Association="Self.FK_Exam_To_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speciality_To_Chair" Association="Self.FK_Speciality_To_Chair">
+            <End Role="Chair" EntitySet="Chair" />
+            <End Role="Speciality" EntitySet="Speciality" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_To_Speciality" Association="Self.FK_Student_To_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_Worker" Association="Self.FK_Teacher_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Worker_To_Chair" Association="Self.FK_Worker_To_Chair">
+            <End Role="Chair" EntitySet="Chair" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SagdievaStudyPRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Academics">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Fullname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Specialization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="YearOfAwardingTheTitle" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Animals_Sagdieva">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Squad" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_Speciality" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Discipline" Type="Int32" />
+          <NavigationProperty Name="Discipline" Relationship="Self.FK_Application_To_Discipline" FromRole="Application" ToRole="Discipline" />
+          <NavigationProperty Name="Speciality" Relationship="Self.FK_Application_To_Speciality" FromRole="Application" ToRole="Speciality" />
+        </EntityType>
+        <EntityType Name="Chair">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Faculty" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Faculty" Relationship="Self.FK_Chair_To_Faculty" FromRole="Chair" ToRole="Faculty" />
+          <NavigationProperty Name="Discipline" Relationship="Self.FK_Discipline_To_Chair" FromRole="Chair" ToRole="Discipline" />
+          <NavigationProperty Name="Speciality" Relationship="Self.FK_Speciality_To_Chair" FromRole="Chair" ToRole="Speciality" />
+          <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_To_Chair" FromRole="Chair" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="ChairBoss">
+          <Key>
+            <PropertyRef Name="ID_Worker" />
+          </Key>
+          <Property Name="ID_Worker" Type="Int32" Nullable="false" />
+          <Property Name="Standing" Type="Int32" />
+          <NavigationProperty Name="Worker" Relationship="Self.FK_ChairBoss_Worker" FromRole="ChairBoss" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Control_Sagdieva">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Capital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Square" Type="Int32" />
+          <Property Name="Population" Type="Int32" />
+          <Property Name="Continent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Country_Sagdieva">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Square" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Discipline">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Volume" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Chair" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Application_To_Discipline" FromRole="Discipline" ToRole="Application" />
+          <NavigationProperty Name="Chair" Relationship="Self.FK_Discipline_To_Chair" FromRole="Discipline" ToRole="Chair" />
+          <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_To_Discipline" FromRole="Discipline" ToRole="Exam" />
+        </EntityType>
+        <EntityType Name="Engineer">
+          <Key>
+            <PropertyRef Name="ID_Worker" />
+          </Key>
+          <Property Name="ID_Worker" Type="Int32" Nullable="false" />
+          <Property Name="ID_Speciality" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Worker" Relationship="Self.FK_Engineer_Worker" FromRole="Engineer" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="ID_Discipline" Type="Int32" />
+          <Property Name="ID_Student" Type="Int32" />
+          <Property Name="ID_Worker" Type="Int32" />
+          <Property Name="Audience" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Mark" Type="Int32" />
+          <NavigationProperty Name="Discipline" Relationship="Self.FK_Exam_To_Discipline" FromRole="Exam" ToRole="Discipline" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Exam_To_Student" FromRole="Exam" ToRole="Student" />
+          <NavigationProperty Name="Worker" Relationship="Self.FK_Exam_To_Worker" FromRole="Exam" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Chair" Relationship="Self.FK_Chair_To_Faculty" FromRole="Faculty" ToRole="Chair" />
+        </EntityType>
+        <EntityType Name="Flowers_Sagdieva">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Class" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Speciality">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Chair" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Application_To_Speciality" FromRole="Speciality" ToRole="Application" />
+          <NavigationProperty Name="Chair" Relationship="Self.FK_Speciality_To_Chair" FromRole="Speciality" ToRole="Chair" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_To_Speciality" FromRole="Speciality" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_Speciality" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_To_Student" FromRole="Student" ToRole="Exam" />
+          <NavigationProperty Name="Speciality" Relationship="Self.FK_Student_To_Speciality" FromRole="Student" ToRole="Speciality" />
+        </EntityType>
+        <EntityType Name="StudentPR10">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Points" Type="Double" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="ID_Worker" />
+          </Key>
+          <Property Name="ID_Worker" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Degree" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Worker" Relationship="Self.FK_Teacher_Worker" FromRole="Teacher" ToRole="Worker" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Chair" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="Fullname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ID_Chief" Type="Int32" />
+          <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Chair" Relationship="Self.FK_Worker_To_Chair" FromRole="Worker" ToRole="Chair" />
+          <NavigationProperty Name="ChairBoss" Relationship="Self.FK_ChairBoss_Worker" FromRole="Worker" ToRole="ChairBoss" />
+          <NavigationProperty Name="Engineer" Relationship="Self.FK_Engineer_Worker" FromRole="Worker" ToRole="Engineer" />
+          <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_To_Worker" FromRole="Worker" ToRole="Exam" />
+          <NavigationProperty Name="Teacher" Relationship="Self.FK_Teacher_Worker" FromRole="Worker" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="GymnasiumPupil">
+          <Key>
+            <PropertyRef Name="Surname" />
+            <PropertyRef Name="Subject" />
+            <PropertyRef Name="School" />
+          </Key>
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Points" Type="Double" />
+        </EntityType>
+        <Association Name="FK_Application_To_Discipline">
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discipline">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_Discipline" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_To_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID_Speciality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chair_To_Faculty">
+          <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
+          <End Role="Chair" Type="Self.Chair" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Chair">
+              <PropertyRef Name="ID_Faculty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Discipline_To_Chair">
+          <End Role="Chair" Type="Self.Chair" Multiplicity="0..1" />
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chair">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Discipline">
+              <PropertyRef Name="ID_Chair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speciality_To_Chair">
+          <End Role="Chair" Type="Self.Chair" Multiplicity="0..1" />
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chair">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Speciality">
+              <PropertyRef Name="ID_Chair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Worker_To_Chair">
+          <End Role="Chair" Type="Self.Chair" Multiplicity="0..1" />
+          <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chair">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Worker">
+              <PropertyRef Name="ID_Chair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChairBoss_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="ChairBoss" Type="Self.ChairBoss" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChairBoss">
+              <PropertyRef Name="ID_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_To_Discipline">
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discipline">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="ID_Discipline" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engineer_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="Engineer" Type="Self.Engineer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Engineer">
+              <PropertyRef Name="ID_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_To_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="ID_Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_To_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="ID_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_To_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="ID_Speciality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_Worker">
+          <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Worker">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="ID_Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SagdievaStudyPREntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Academics" EntityType="Self.Academics" />
+          <EntitySet Name="Animals_Sagdieva" EntityType="Self.Animals_Sagdieva" />
+          <EntitySet Name="Application" EntityType="Self.Application" />
+          <EntitySet Name="Chair" EntityType="Self.Chair" />
+          <EntitySet Name="ChairBoss" EntityType="Self.ChairBoss" />
+          <EntitySet Name="Control_Sagdieva" EntityType="Self.Control_Sagdieva" />
+          <EntitySet Name="Country" EntityType="Self.Country" />
+          <EntitySet Name="Country_Sagdieva" EntityType="Self.Country_Sagdieva" />
+          <EntitySet Name="Discipline" EntityType="Self.Discipline" />
+          <EntitySet Name="Engineer" EntityType="Self.Engineer" />
+          <EntitySet Name="Exam" EntityType="Self.Exam" />
+          <EntitySet Name="Faculty" EntityType="Self.Faculty" />
+          <EntitySet Name="Flowers_Sagdieva" EntityType="Self.Flowers_Sagdieva" />
+          <EntitySet Name="Speciality" EntityType="Self.Speciality" />
+          <EntitySet Name="Student" EntityType="Self.Student" />
+          <EntitySet Name="StudentPR10" EntityType="Self.StudentPR10" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" />
+          <EntitySet Name="Worker" EntityType="Self.Worker" />
+          <EntitySet Name="GymnasiumPupil" EntityType="Self.GymnasiumPupil" />
+          <AssociationSet Name="FK_Application_To_Discipline" Association="Self.FK_Application_To_Discipline">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_To_Speciality" Association="Self.FK_Application_To_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chair_To_Faculty" Association="Self.FK_Chair_To_Faculty">
+            <End Role="Faculty" EntitySet="Faculty" />
+            <End Role="Chair" EntitySet="Chair" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Discipline_To_Chair" Association="Self.FK_Discipline_To_Chair">
+            <End Role="Chair" EntitySet="Chair" />
+            <End Role="Discipline" EntitySet="Discipline" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speciality_To_Chair" Association="Self.FK_Speciality_To_Chair">
+            <End Role="Chair" EntitySet="Chair" />
+            <End Role="Speciality" EntitySet="Speciality" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Worker_To_Chair" Association="Self.FK_Worker_To_Chair">
+            <End Role="Chair" EntitySet="Chair" />
+            <End Role="Worker" EntitySet="Worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChairBoss_Worker" Association="Self.FK_ChairBoss_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="ChairBoss" EntitySet="ChairBoss" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_To_Discipline" Association="Self.FK_Exam_To_Discipline">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engineer_Worker" Association="Self.FK_Engineer_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Engineer" EntitySet="Engineer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_To_Student" Association="Self.FK_Exam_To_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_To_Worker" Association="Self.FK_Exam_To_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_To_Speciality" Association="Self.FK_Student_To_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_Worker" Association="Self.FK_Teacher_Worker">
+            <End Role="Worker" EntitySet="Worker" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SagdievaStudyPRModelContainer" CdmEntityContainer="SagdievaStudyPREntities">
+          <EntitySetMapping Name="Academics">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Academics">
+              <MappingFragment StoreEntitySet="Academics">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+                <ScalarProperty Name="YearOfAwardingTheTitle" ColumnName="YearOfAwardingTheTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Animals_Sagdieva">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Animals_Sagdieva">
+              <MappingFragment StoreEntitySet="Animals_Sagdieva">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Squad" ColumnName="Squad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Application">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Application">
+              <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_Speciality" ColumnName="ID_Speciality" />
+                <ScalarProperty Name="ID_Discipline" ColumnName="ID_Discipline" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chair">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Chair">
+              <MappingFragment StoreEntitySet="Chair">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Faculty" ColumnName="ID_Faculty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChairBoss">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.ChairBoss">
+              <MappingFragment StoreEntitySet="ChairBoss">
+                <ScalarProperty Name="ID_Worker" ColumnName="ID_Worker" />
+                <ScalarProperty Name="Standing" ColumnName="Standing" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Control_Sagdieva">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Control_Sagdieva">
+              <MappingFragment StoreEntitySet="Control_Sagdieva">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Capital" ColumnName="Capital" />
+                <ScalarProperty Name="Square" ColumnName="Square" />
+                <ScalarProperty Name="Population" ColumnName="Population" />
+                <ScalarProperty Name="Continent" ColumnName="Continent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country_Sagdieva">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Country_Sagdieva">
+              <MappingFragment StoreEntitySet="Country_Sagdieva">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Square" ColumnName="Square" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discipline">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Discipline">
+              <MappingFragment StoreEntitySet="Discipline">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Chair" ColumnName="ID_Chair" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Engineer">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Engineer">
+              <MappingFragment StoreEntitySet="Engineer">
+                <ScalarProperty Name="ID_Worker" ColumnName="ID_Worker" />
+                <ScalarProperty Name="ID_Speciality" ColumnName="ID_Speciality" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exam">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Exam">
+              <MappingFragment StoreEntitySet="Exam">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ID_Discipline" ColumnName="ID_Discipline" />
+                <ScalarProperty Name="ID_Student" ColumnName="ID_Student" />
+                <ScalarProperty Name="ID_Worker" ColumnName="ID_Worker" />
+                <ScalarProperty Name="Audience" ColumnName="Audience" />
+                <ScalarProperty Name="Mark" ColumnName="Mark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faculty">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Faculty">
+              <MappingFragment StoreEntitySet="Faculty">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flowers_Sagdieva">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Flowers_Sagdieva">
+              <MappingFragment StoreEntitySet="Flowers_Sagdieva">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Speciality">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Speciality">
+              <MappingFragment StoreEntitySet="Speciality">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Chair" ColumnName="ID_Chair" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_Speciality" ColumnName="ID_Speciality" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentPR10">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.StudentPR10">
+              <MappingFragment StoreEntitySet="StudentPR10">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="Points" ColumnName="Points" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teacher">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Teacher">
+              <MappingFragment StoreEntitySet="Teacher">
+                <ScalarProperty Name="ID_Worker" ColumnName="ID_Worker" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Worker">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.Worker">
+              <MappingFragment StoreEntitySet="Worker">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_Chair" ColumnName="ID_Chair" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="ID_Chief" ColumnName="ID_Chief" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GymnasiumPupil">
+            <EntityTypeMapping TypeName="SagdievaStudyPRModel.GymnasiumPupil">
+              <MappingFragment StoreEntitySet="GymnasiumPupil">
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="Points" ColumnName="Points" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

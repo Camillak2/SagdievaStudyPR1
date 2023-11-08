@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="712a30ccc6c3464e90eabaf3b83be32a" Name="Diagram1">
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Academics" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Animals_Sagdieva" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Application" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Chair" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.ChairBoss" Width="1.5" PointX="7.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Control_Sagdieva" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Country" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Country_Sagdieva" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Discipline" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Engineer" Width="1.5" PointX="7.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Exam" Width="1.5" PointX="9.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Faculty" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Flowers_Sagdieva" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Speciality" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Student" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.StudentPR10" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.sysdiagrams" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Teacher" Width="1.5" PointX="7.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.Worker" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SagdievaStudyPRModel.GymnasiumPupil" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="SagdievaStudyPRModel.FK_Application_To_Discipline" ManuallyRouted="false" />
+        <AssociationConnector Association="SagdievaStudyPRModel.FK_Application_To_Speciality" ManuallyRouted="false" />
+        <AssociationConnector Association="SagdievaStudyPRModel.FK_Chair_To_Faculty" ManuallyRouted="false" />
+        <AssociationConnector Association="SagdievaStudyPRModel.FK_Discipline_To_Chair" ManuallyRouted="false" />
+        <AssociationConnector Association="SagdievaStudyPRModel.FK_Speciality_To_Chair" ManuallyRouted="false" />
+        <AssociationConnector Association="SagdievaStudyPRModel.FK_Worker_To_Chair" ManuallyRouted="false" />
+        <AssociationConnector Association="SagdievaStudyPRModel.FK_ChairBoss_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="SagdievaStudyPRModel.FK_Exam_To_Discipline" ManuallyRouted="false" />
+        <AssociationConnector Association="SagdievaStudyPRModel.FK_Engineer_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="SagdievaStudyPRModel.FK_Exam_To_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="SagdievaStudyPRModel.FK_Exam_To_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="SagdievaStudyPRModel.FK_Student_To_Speciality" ManuallyRouted="false" />
+        <AssociationConnector Association="SagdievaStudyPRModel.FK_Teacher_Worker" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
